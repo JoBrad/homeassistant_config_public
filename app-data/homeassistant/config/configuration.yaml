@@ -1,0 +1,87 @@
+#################################################################
+# Primary integrations configuration file for Home Assistant
+# More information: https://www.home-assistant.io/docs/configuration/yaml/
+#
+# NOTE: Secrets are stored in a secrets.yaml file. 
+# Learn more at https://www.home-assistant.io/docs/configuration/secrets/
+#################################################################
+
+#################################################################
+# Loads default set of integrations. Do not remove.
+# https://www.home-assistant.io/integrations/default_config/
+#################################################################
+default_config:
+
+#################################################################
+# Custom integrations are listed below here
+# More information about integrations at https://www.home-assistant.io/integrations
+#################################################################
+
+#################################################################
+# Enable remote Python debugger
+# The remote Python debugger integration allows you to use the
+# Visual Studio Code Python debug tooling with a remote
+# Home Assistant instance.
+#################################################################
+# debugpy:
+
+#################################################################
+# Enable backup
+#################################################################
+backup:
+
+#################################################################
+# Text to speech
+#################################################################
+tts: !include conf/tts.yaml
+
+#################################################################
+# Custom automations
+#################################################################
+automation: !include conf/automations.yaml
+
+#################################################################
+# Custom groups
+#################################################################
+# group: !include conf/groups.yaml
+
+#################################################################
+# Customize entities
+#################################################################
+# customize: !include conf/customize.yaml
+# customize_domain: !include conf/customize_domain.yaml
+# customize_glob: !include conf/customize_glob.yaml
+
+#################################################################
+# Custom scenes
+#################################################################
+# scene: !include conf/scenes.yaml
+
+#################################################################
+# Custom scripts
+#################################################################
+script: !include conf/scripts.yaml
+
+#################################################################
+# Custom sensors
+# Sensors monitor the states and conditions of a variety of entities
+# A binary sensor can only return 1 of 1 mutually exclusive values
+# "Regular" sensors can have multiple values.
+#################################################################
+binary_sensor: !include conf/binary_sensors.yaml
+sensor: !include conf/sensors.yaml
+
+#################################################################
+# Custom device trackers
+#################################################################
+device_tracker: !include conf/device_trackers.yaml
+
+#################################################################
+# Custom templates
+#################################################################
+template: !include conf/template.yaml
+
+#################################################################
+# Custom links in the sidebar
+#################################################################
+panel_iframe: !include conf/panels.yaml

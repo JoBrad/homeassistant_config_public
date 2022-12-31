@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+
+  # portainer:
+  #   container_name: portainer
+  #   build: ${PORTAINER_DIR}/
+  #   environment:
+  #     - TZ=America/Chicago
+  #   ports:
+  #     - 9000:9000/tcp
+  #   volumes:
+  #     - ${PORTAINER_DIR}/data:/data
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #     - /etc/localtime:/etc/localtime:ro
+
+  homeassistant:
+    build: ${APP_DIR}/homeassistant/
+    container_name: homeassistant
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
+    volumes:
+      - ${APP_DATA_DIR}/homeassistant/config:/config
+      - /etc/localtime:/etc/localtime:ro
+      - /run/dbus:/run/dbus:ro
+
+  mqtt:
+    build: ${APP_DIR}/mosquitto/
+    user: "1000:1883"
+    container_name: mqtt
+    restart: unless-stopped
+    ports:
+      - 1883:1883
+      - 9001:9001
+    volumes:
+      - ${APP_DATA_DIR}/mosquitto/storage/mosquitto/config:/mosquitto/config
+      - ${APP_DATA_DIR}/mosquitto/storage/mosquitto/data:/mosquitto/data
+      - ${APP_DATA_DIR}/mosquitto/storage/mosquitto/log:/mosquitto/log
+      - /etc/localtime:/etc/localtime:ro
+
+  nodered:
+    build: ${APP_DIR}/nodered/
+    container_name: nodered
+    restart: unless-stopped
+    ports:
+      - 1880:1880
+    volumes:
+      - ${APP_DATA_DIR}/nodered/data:/data
+      - /etc/localtime:/etc/localtime:ro
+
+  ring-mqtt:
+    container_name: ring-mqtt
+    restart: unless-stopped
+    build: ${APP_DIR}/ring-mqtt
+    depends_on:
+      - mqtt
+    ports:
+      - 8554:8554 # Enable RTSP port for external media player access
+    volumes:
+      - ${APP_DATA_DIR}/ring-mqtt/data:/data
+    logging: # limit logs to 10m and 3 files
+      options:
+        max-size: 10m
+        max-file: "3"

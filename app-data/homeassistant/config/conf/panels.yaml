@@ -1,0 +1,13 @@
+#################################################################
+# Insert custom items in the Home Assistant sidebar
+# https://www.home-assistant.io/integrations/panel_iframe/
+# WARNING: Do not create one that is named `lovelace`.
+# It will overwrite existing Dashboards, causing it to never load.
+#################################################################
+
+# portainer:
+#   title: "Portainer"
+#   Change this to your local IP
+#   url: "http://localip:9000/#/containers"
+#   icon: mdi:docker
+#   require_admin: true

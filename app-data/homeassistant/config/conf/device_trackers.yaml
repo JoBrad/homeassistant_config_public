@@ -1,0 +1,14 @@
+#################################################################
+# The device tracker allows you to track devices in Home Assistant
+# https://www.home-assistant.io/integrations/device_tracker/
+#################################################################
+
+#################################################################
+## Tile
+#################################################################
+# - platform: tile
+#   username: address@esp.com
+#   password: !secret tile_app
+#   interval_seconds: 20
+#   new_device_defaults:
+#     track_new_devices: true

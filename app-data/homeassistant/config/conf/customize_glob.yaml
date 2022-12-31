@@ -1,0 +1,7 @@
+#################################################################
+# Use this to customize entities matching a pattern
+# https://www.home-assistant.io/docs/configuration/customizing-devices/
+
+# Correct use of customize_glob shown here:
+# https://community.home-assistant.io/t/correct-use-of-customize-glob/118315
+#################################################################

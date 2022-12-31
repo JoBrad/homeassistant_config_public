@@ -1,0 +1,13 @@
+#################################################################
+# Automations cause Home Assistant to perform actions based on defined rules.
+# More information: https://www.home-assistant.io/docs/automation/yaml/
+#################################################################
+
+- id: system_backup_schedule
+  alias: "Backup Home Assistant every night at 3AM"
+  trigger:
+    - platform: time
+      at: "03:00:00"
+  action:
+    alias: "Create backup"
+    service: backup.create

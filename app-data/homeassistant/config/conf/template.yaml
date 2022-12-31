@@ -1,0 +1,12 @@
+#################################################################
+# The template integration allows you to create entities
+# which derive their values from other data.
+# https://www.home-assistant.io/integrations/template/
+#################################################################
+
+# Holidays calendar
+
+- sensor:
+  - unique_id: holidays_calendar
+    name: Holiday Calendar
+    state: '{{ states.calendar.holidays_in_united_states.attributes.message }}'

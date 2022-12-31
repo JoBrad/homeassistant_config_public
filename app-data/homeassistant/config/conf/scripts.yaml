@@ -1,0 +1,5 @@
+#################################################################
+# The script integration allows users to specify a
+# sequence of actions to be executed by Home Assistant
+# https://www.home-assistant.io/integrations/script/
+#################################################################

@@ -1,0 +1,7 @@
+#################################################################
+# Use this to customize entities
+# https://www.home-assistant.io/docs/configuration/customizing-devices/
+
+# You can also add data_template and service_template as
+# per https://www.home-assistant.io/docs/automation/templating/
+#################################################################
